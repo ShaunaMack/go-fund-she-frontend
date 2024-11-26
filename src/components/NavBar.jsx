@@ -1,10 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
+import "./NavBar.css";
 
 function NavBar() {
   return (
-    <div>
+    <div className="nav-bar-wrapper">
       <nav>
-        <ul>
+        <ul className="nav-bar-list">
           <li>
             <Link to="/">Home</Link>
           </li>

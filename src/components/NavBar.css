@@ -1,0 +1,33 @@
+.nav-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: #f8f9fa; /* Light background for the nav */
+  padding: 10px 20px; /* Add some padding for spacing */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for a subtle 3D effect */
+}
+
+.nav-bar-list {
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar-list > li {
+  margin-right: 20px; /* Space between nav items */
+}
+
+.nav-bar-list > li > a {
+  text-decoration: none; /* Remove default underline */
+  color: #007bff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-bar-list > li > a:hover {
+  color: #0056b3; /* Darker shade on hover */
+}
