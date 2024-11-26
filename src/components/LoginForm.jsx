@@ -1,4 +1,5 @@
 import { useState } from "react";
+import postLogin from "../api/post-login.js";
 
 function LoginForm() {
   const [credentials, setCredentials] = useState({
@@ -13,6 +14,16 @@ function LoginForm() {
       [id]: value,
     }));
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (credentials.username && credentials.password) {
+      postLogin(credentials.username, credentials.password).then((response) => {
+        console.log(response);
+      });
+    }
+  };
+
   return (
     <form>
       <div>
@@ -33,7 +44,9 @@ function LoginForm() {
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" onClick={handleSubmit}>
+        Login
+      </button>
     </form>
   );
 }
