@@ -1,10 +1,11 @@
+import ProjectCard from "../components/ProjectCard";
 import { allProjects } from "../data";
 
 function HomePage() {
   return (
     <div>
       {allProjects.map((projectData, index) => {
-        return <div key={index}>{projectData.title}</div>;
+        return <ProjectCard key={index} projectData={projectData} />;
       })}
     </div>
   );
