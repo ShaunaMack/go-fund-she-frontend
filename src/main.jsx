@@ -6,15 +6,20 @@ import "./index.css";
 import HomePage from "./pages/HomePage.jsx";
 import ProjectPage from "./pages/ProjectPage.jsx";
 
+import NavBar from "./components/NavBar.jsx";
+
 // Create router and tell it what pages to render at what path
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/project",
-    element: <ProjectPage />,
+    element: <NavBar />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      {
+        path: "/project",
+        element: <ProjectPage />,
+      },
+    ],
   },
 ]);
 
