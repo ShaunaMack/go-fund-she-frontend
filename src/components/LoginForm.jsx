@@ -19,13 +19,22 @@ function LoginForm() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (credentials.username && credentials.password) {
-      postLogin(credentials.username, credentials.password).then((response) => {
+
+    const { username, password } = credentials;
+
+    if (username && password) {
+      try {
+        // Log in the user
+        const response = await postLogin(username, password);
+        // Save the token and navigate to the home page
         window.localStorage.setItem("token", response.token);
         navigate("/");
-      });
+      } catch (error) {
+        console.error("Error during login:", error.message);
+        // TODO: decide what to show user if there is an error logging in
+      }
     }
   };
 

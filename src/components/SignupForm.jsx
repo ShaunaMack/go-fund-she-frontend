@@ -21,23 +21,24 @@ function SignupForm() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    event.preventDefault();
     const { username, email, password } = credentials;
 
     if (username && email && password) {
-      postSignup(username, email, password)
-        .then(() => {
-          // After successful sign-up, log in the user
-          return postLogin(username, password);
-        })
-        .then((loginResponse) => {
-          // Save the token and navigate to the home page
-          window.localStorage.setItem("token", loginResponse.token);
-          navigate("/");
-        });
+      try {
+        // Sign up the user
+        await postSignup(username, email, password);
+        // Log in the user
+        const loginResponse = await postLogin(username, password);
+        // Save the token and navigate to the home page
+        window.localStorage.setItem("token", loginResponse.token);
+        navigate("/");
+      } catch (error) {
+        console.error("Error during sign-up or login:", error.message);
+        // TODO: decide what to show user if there is an error signing in
+      }
     }
   };
 
