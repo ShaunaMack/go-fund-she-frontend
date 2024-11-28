@@ -37,7 +37,7 @@ function SignupForm() {
         // Save the token and navigate to the home page
         window.localStorage.setItem("token", loginResponse.token);
         setAuth({
-          token: response.token,
+          token: loginResponse.token,
         });
         navigate("/");
       } catch (error) {
