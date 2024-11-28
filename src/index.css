@@ -1,0 +1,52 @@
+/* Define default color variables */
+:root {
+  --defaultColor: black;
+  --primaryColor: #4caf50;
+  --secondaryColor: #2196f3;
+  --secondaryDarkColor: #104875;
+  --backgroundAccentColor: #e5e3e3;
+  --warningColor: #ff5722;
+  --mutedColor: #777777;
+}
+
+#root {
+  font-family: Arial, sans-serif;
+  color: var(--defaultColor);
+  background-color: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1 {
+  color: var(--primaryColor);
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2em;
+  color: var(--defaultColor);
+}
+
+h3 {
+  font-size: 1.5em;
+  color: var(--mutedColor);
+}
+
+/* Links */
+a {
+  color: var(--secondaryColor);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondaryDarkColor);
+  text-decoration: underline;
+}
+
+/* Normal text */
+p {
+  color: var(--defaultColor);
+  line-height: 1.6;
+}

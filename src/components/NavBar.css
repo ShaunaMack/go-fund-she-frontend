@@ -4,7 +4,7 @@
 }
 
 nav {
-  background-color: #f8f9fa; /* Light background for the nav */
+  background-color: var(--backgroundAccentColor);
   padding: 10px 20px; /* Add some padding for spacing */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for a subtle 3D effect */
 }
@@ -23,11 +23,11 @@ nav {
 
 .nav-bar-list > li > a {
   text-decoration: none; /* Remove default underline */
-  color: #007bff;
+  color: var(--secondaryColor);
   font-weight: bold;
   font-size: 16px;
 }
 
 .nav-bar-list > li > a:hover {
-  color: #0056b3; /* Darker shade on hover */
+  color: var(--secondaryDarkColor);
 }
