@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import postLogin from "../api/post-login.js";
 import postSignup from "../api/post-signup.js";
+import { useAuth } from "../hooks/use-auth.js";
 
 function SignupForm() {
   const navigate = useNavigate();
+  const { auth, setAuth } = useAuth();
 
   const [credentials, setCredentials] = useState({
     username: "",
@@ -34,6 +36,9 @@ function SignupForm() {
         const loginResponse = await postLogin(username, password);
         // Save the token and navigate to the home page
         window.localStorage.setItem("token", loginResponse.token);
+        setAuth({
+          token: response.token,
+        });
         navigate("/");
       } catch (error) {
         console.error("Error during sign-up or login:", error.message);

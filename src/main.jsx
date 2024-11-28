@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 
 import NavBar from "./components/NavBar.jsx";
+import { AuthProvider } from "./components/AuthProvider.jsx";
 // Create router and tell it what pages to render at what path
 const router = createBrowserRouter([
   {
@@ -28,7 +29,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* Wrap our app in the router provider so the pages render */}
-    <RouterProvider router={router} />
+    {/* Wrap our app in the auth provider so we have access to login state */}
+    <AuthProvider>
+      {/* Wrap our app in the router provider so the pages render */}
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

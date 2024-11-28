@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import postLogin from "../api/post-login.js";
+import { useAuth } from "../hooks/use-auth.js";
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { auth, setAuth } = useAuth();
 
   const [credentials, setCredentials] = useState({
     username: "",
@@ -30,6 +32,9 @@ function LoginForm() {
         const response = await postLogin(username, password);
         // Save the token and navigate to the home page
         window.localStorage.setItem("token", response.token);
+        setAuth({
+          token: response.token,
+        });
         navigate("/");
       } catch (error) {
         console.error("Error during login:", error.message);
