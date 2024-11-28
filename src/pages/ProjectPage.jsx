@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useProject from "../hooks/use-project";
 import PledgeForm from "../components/PledgeForm";
 import { useAuth } from "../hooks/use-auth";
 import deleteProject from "../api/delete-project";
 
 function ProjectPage() {
+  const navigate = useNavigate();
   const { auth } = useAuth();
   // Here we use a hook that comes for free in react router called `useParams` to get the id from the URL so that we can pass it to our useProject hook.
   const { id } = useParams();
@@ -28,6 +29,7 @@ function ProjectPage() {
     try {
       await deleteProject(id, auth.token);
       alert("Project deleted successfully.");
+      navigate("/");
     } catch (err) {
       console.error("Error deleting project:", err);
       alert(err.message);
