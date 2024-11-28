@@ -22,16 +22,17 @@ function ProjectPage() {
     <div>
       <h2>{project.title}</h2>
       <h3>Created at: {project.date_created}</h3>
-      <h3>{`Status: ${project.is_open}`}</h3>
+      <h3>{`Status: ${project.is_open ? "Open" : "Closed"}`}</h3>
       <h3>Pledges:</h3>
       <ul>
-        {project.pledges.map((pledgeData, key) => {
-          return (
-            <li key={key}>
-              {pledgeData.amount} from {pledgeData.supporter}
-            </li>
-          );
-        })}
+        {project.pledges.map((pledge, key) => (
+          <li key={key}>
+            {pledge.amount} from{" "}
+            {pledge.anonymous
+              ? "Anonymous"
+              : project.userMap[pledge.supporter] || "Unknown"}
+          </li>
+        ))}
       </ul>
       {auth.token ? (
         <PledgeForm projectId={project.id} />
