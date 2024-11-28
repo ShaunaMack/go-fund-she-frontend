@@ -51,6 +51,7 @@ function PledgeForm(props) {
         <input
           type="number"
           id="amount"
+          step="1"
           placeholder="Enter pledge amount"
           value={pledgeData.amount}
           onChange={handleChange}
