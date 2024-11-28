@@ -5,7 +5,7 @@ import useProjects from "../hooks/use-projects";
 import "./HomePage.css";
 
 function HomePage() {
-  const { auth, setAuth } = useAuth();
+  const { auth } = useAuth();
   const { projects, isLoading, error } = useProjects();
 
   if (isLoading) {
