@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./ProjectCard.css";
 
+/* eslint-disable react/prop-types */
 function ProjectCard(props) {
   const { projectData } = props;
   const projectLink = `project/${projectData.id}`;
