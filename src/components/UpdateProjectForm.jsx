@@ -9,7 +9,7 @@ function UpdateProjectForm({ project, token }) {
     description: project.description,
     goal: project.goal,
     image: project.image,
-    is_open: project.is_open,
+    isOpen: project.isOpen,
   });
 
   const handleChange = (event) => {
@@ -69,12 +69,12 @@ function UpdateProjectForm({ project, token }) {
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label htmlFor="is_open">
+      <div className="checkbox-wrapper">
+        <label htmlFor="isOpen">
           <input
             type="checkbox"
-            id="is_open"
-            checked={formData.is_open}
+            id="isOpen"
+            checked={formData.isOpen}
             onChange={handleChange}
           />
           Open for pledges

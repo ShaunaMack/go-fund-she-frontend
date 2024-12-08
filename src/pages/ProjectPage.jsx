@@ -38,13 +38,9 @@ function ProjectPage() {
     }
   };
 
-  const isOwner = auth.user?.id === project.owner;
+  const handleLoginClick = () => navigate("/login");
 
-  const makePledgeSection = auth.token ? (
-    <PledgeForm projectId={project.id} />
-  ) : (
-    <div>Login to make a pledge to this project</div>
-  );
+  const isOwner = auth.user?.id === project.owner;
 
   return (
     <div>
@@ -63,17 +59,24 @@ function ProjectPage() {
           </li>
         ))}
       </ul>
-      {project.isOpen && makePledgeSection}
-
-      {isOwner && (
-        <div>
-          <h2>Manage Project</h2>
-          <UpdateProjectForm project={project} token={auth.token} />
-          <Button onClick={handleDelete} color="var(--warningColor)">
-            Delete Project
-          </Button>
-        </div>
+      {project.is_open && !auth.token && (
+        <Button onClick={handleLoginClick}>
+          Login to make a pledge to this project
+        </Button>
       )}
+      <div className="form-container">
+        {project.is_open && auth.token && <PledgeForm projectId={project.id} />}
+
+        {isOwner && (
+          <div>
+            <h2>Manage Project</h2>
+            <UpdateProjectForm project={project} token={auth.token} />
+            <Button onClick={handleDelete} color="var(--warningColor)">
+              Delete Project
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

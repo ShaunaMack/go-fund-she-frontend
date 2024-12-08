@@ -67,7 +67,7 @@ function PledgeForm(props) {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div className="checkbox-wrapper">
         <label htmlFor="anonymous">
           <input
             type="checkbox"

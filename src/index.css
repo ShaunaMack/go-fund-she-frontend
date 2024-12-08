@@ -7,6 +7,7 @@
   --backgroundAccentColor: #e5e3e3;
   --warningColor: #ff5722;
   --mutedColor: #777777;
+  --placeholderColor: #aaaaaa;
 }
 
 #root {
@@ -49,4 +50,91 @@ a:hover {
 p {
   color: var(--defaultColor);
   line-height: 1.6;
+}
+
+/* Placeholder text */
+::placeholder {
+  color: var(--placeholderColor);
+  font-style: italic;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--backgroundAccentColor);
+  border: 1px solid var(--mutedColor);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form labels */
+label {
+  font-weight: bold;
+  color: var(--defaultColor);
+}
+
+/* Form inputs */
+input,
+textarea,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  color: var(--defaultColor); /* Ensures text color matches default */
+  border: 1px solid var(--mutedColor);
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--placeholderColor); /* Matches placeholder color */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  font-family: inherit; /* Ensures consistent font across buttons */
+  font-size: 1rem;
+}
+
+/* Error messages */
+.error {
+  color: var(--warningColor);
+  font-size: 0.9rem;
+  margin-top: -10px;
+}
+
+/* Form container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+form div label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto; /* Prevent label from stretching */
+}
+
+form div label input[type="checkbox"] {
+  margin: 0;
+  flex-shrink: 0; /* Prevent the checkbox from shrinking */
+  width: auto; /* Keep checkbox width minimal */
 }

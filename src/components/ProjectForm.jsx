@@ -103,7 +103,7 @@ function ProjectForm() {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div className="checkbox-wrapper">
         <label htmlFor="isOpen">
           <input
             type="checkbox"

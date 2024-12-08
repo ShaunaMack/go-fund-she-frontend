@@ -14,12 +14,14 @@ function LoginPage() {
   return (
     <div>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-      {isLogin ? <LoginForm /> : <SignupForm />}
-      <Button onClick={toggleForm} color="var(--secondaryColor)">
-        {isLogin
-          ? "Don't have an account? Sign up"
-          : "Already have an account? Log in"}
-      </Button>
+      <div className="form-container">
+        {isLogin ? <LoginForm /> : <SignupForm />}
+        <Button onClick={toggleForm} color="var(--secondaryColor)">
+          {isLogin
+            ? "Don't have an account? Sign up"
+            : "Already have an account? Log in"}
+        </Button>
+      </div>
     </div>
   );
 }
