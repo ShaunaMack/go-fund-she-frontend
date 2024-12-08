@@ -1,7 +1,9 @@
 import { useState } from "react";
 import postProject from "../api/post-project.js";
+import { useNavigate } from "react-router-dom";
 
 function ProjectForm() {
+  const navigate = useNavigate();
   const [projectData, setProjectData] = useState({
     title: "",
     description: "",
@@ -45,6 +47,8 @@ function ProjectForm() {
           image: "",
           isOpen: true,
         });
+        // Reload the current page
+        navigate(0);
       } catch (error) {
         console.error("Error during project creation:", error.message);
         // TODO: decide what to show user if there is an error creating a project
