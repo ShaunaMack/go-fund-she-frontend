@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
+import Button from "../components/Button";
 
 function LoginPage() {
   // if isLogin show the login form or else show the sign up form
@@ -14,11 +15,11 @@ function LoginPage() {
     <div>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       {isLogin ? <LoginForm /> : <SignupForm />}
-      <button onClick={toggleForm}>
+      <Button onClick={toggleForm} color="var(--secondaryColor)">
         {isLogin
           ? "Don't have an account? Sign up"
           : "Already have an account? Log in"}
-      </button>
+      </Button>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import postProject from "../api/post-project.js";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button.jsx";
 
 function ProjectForm() {
   const navigate = useNavigate();
@@ -113,7 +114,7 @@ function ProjectForm() {
           Project is open for pledges
         </label>
       </div>
-      <button type="submit">Create Project</button>
+      <Button type="submit">Create Project</Button>
     </form>
   );
 }

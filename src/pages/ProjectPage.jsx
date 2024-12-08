@@ -4,6 +4,7 @@ import PledgeForm from "../components/PledgeForm";
 import { useAuth } from "../hooks/use-auth";
 import deleteProject from "../api/delete-project";
 import UpdateProjectForm from "../components/UpdateProjectForm";
+import Button from "../components/Button";
 
 function ProjectPage() {
   const navigate = useNavigate();
@@ -68,7 +69,9 @@ function ProjectPage() {
         <div>
           <h2>Manage Project</h2>
           <UpdateProjectForm project={project} token={auth.token} />
-          <button onClick={handleDelete}>Delete Project</button>
+          <Button onClick={handleDelete} color="var(--warningColor)">
+            Delete Project
+          </Button>
         </div>
       )}
     </div>

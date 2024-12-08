@@ -1,5 +1,6 @@
 import { useState } from "react";
 import postPledge from "../api/post-pledge.js";
+import Button from "./Button.jsx";
 
 /* eslint-disable react/prop-types */
 function PledgeForm(props) {
@@ -77,7 +78,7 @@ function PledgeForm(props) {
           Pledge anonymously
         </label>
       </div>
-      <button type="submit">Create Pledge</button>
+      <Button type="submit">Create Pledge</Button>
     </form>
   );
 }

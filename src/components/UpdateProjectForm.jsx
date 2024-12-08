@@ -1,5 +1,6 @@
 import { useState } from "react";
 import updateProject from "../api/update-project";
+import Button from "./Button";
 
 /* eslint-disable react/prop-types */
 function UpdateProjectForm({ project, token }) {
@@ -79,7 +80,7 @@ function UpdateProjectForm({ project, token }) {
           Open for pledges
         </label>
       </div>
-      <button type="submit">Update Project</button>
+      <Button type="submit">Update Project</Button>
     </form>
   );
 }
