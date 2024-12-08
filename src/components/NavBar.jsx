@@ -14,7 +14,11 @@ function NavBar() {
       <nav>
         <ul className="nav-bar-list">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <div className="logo">
+                <img src="../../public/animalgogo.svg" />
+              </div>
+            </Link>
           </li>
           <li>
             <Link to="/about">About</Link>

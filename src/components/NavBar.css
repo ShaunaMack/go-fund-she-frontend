@@ -12,6 +12,7 @@ nav {
 .nav-bar-list {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -30,4 +31,13 @@ nav {
 
 .nav-bar-list > li > a:hover {
   color: var(--secondaryDarkColor);
+}
+
+.logo {
+  width: 40px;
+  margin-right: 5px;
+}
+
+img {
+  width: 100%;
 }
