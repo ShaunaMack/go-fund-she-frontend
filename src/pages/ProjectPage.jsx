@@ -39,6 +39,12 @@ function ProjectPage() {
 
   const isOwner = auth.user?.id === project.owner;
 
+  const makePledgeSection = auth.token ? (
+    <PledgeForm projectId={project.id} />
+  ) : (
+    <div>Login to make a pledge to this project</div>
+  );
+
   return (
     <div>
       <h1>{project.title}</h1>
@@ -52,14 +58,12 @@ function ProjectPage() {
             {pledge.anonymous
               ? "Anonymous"
               : project.userMap[pledge.supporter] || "Unknown"}
+            <p>{pledge.comment}</p>
           </li>
         ))}
       </ul>
-      {auth.token ? (
-        <PledgeForm projectId={project.id} />
-      ) : (
-        <div>Login to make a pledge to this project</div>
-      )}
+      {project.isOpen && makePledgeSection}
+
       {isOwner && (
         <div>
           <h2>Manage Project</h2>
