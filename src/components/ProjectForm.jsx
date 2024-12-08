@@ -8,7 +8,6 @@ function ProjectForm() {
     goal: 0,
     image: "",
     isOpen: true,
-    dateCreated: "",
   });
 
   const handleChange = (event) => {
@@ -22,8 +21,8 @@ function ProjectForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { title, description, goal, image, isOpen, dateCreated } =
-      projectData;
+    const { title, description, goal, image, isOpen } = projectData;
+    const dateCreated = new Date().toISOString();
 
     if (title && description && goal > 0) {
       try {
@@ -45,7 +44,6 @@ function ProjectForm() {
           goal: 0,
           image: "",
           isOpen: true,
-          dateCreated: "",
         });
       } catch (error) {
         console.error("Error during project creation:", error.message);
@@ -110,15 +108,6 @@ function ProjectForm() {
           />
           Project is open for pledges
         </label>
-      </div>
-      <div>
-        <label htmlFor="dateCreated">Date Created:</label>
-        <input
-          type="datetime-local"
-          id="dateCreated"
-          value={projectData.dateCreated}
-          onChange={handleChange}
-        />
       </div>
       <button type="submit">Create Project</button>
     </form>
