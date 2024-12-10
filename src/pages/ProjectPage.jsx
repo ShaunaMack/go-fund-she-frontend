@@ -45,7 +45,9 @@ function ProjectPage() {
   return (
     <div>
       <h1>{project.title}</h1>
-      <h3>Created at: {project.date_created}</h3>
+      <h3>
+        Date Created: {new Date(project.date_created).toLocaleDateString()}
+      </h3>
       <h3>{`Status: ${project.is_open ? "Open" : "Closed"}`}</h3>
       <h3>Pledges:</h3>
       <ul>
