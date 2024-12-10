@@ -23,9 +23,7 @@ function NavBar() {
           <li>
             <Link to="/about">About</Link>
           </li>
-          <li>
-            {auth.token ? <Link to="/dashboard">My dashboard</Link> : null}
-          </li>
+          <li>{auth.token ? <Link to="/dashboard">Dashboard</Link> : null}</li>
           <li>
             {auth.token ? (
               <Link to="/" onClick={handleLogout}>
