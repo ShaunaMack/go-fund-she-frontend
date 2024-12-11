@@ -12,15 +12,15 @@ function NavBar() {
   return (
     <div>
       <div className="nav-bar-wrapper">
+        <div>
+          <Link to="/">
+            <div className="logo">
+              <img src="/animalgogo.svg" alt="Animalgogo logo" />
+            </div>
+          </Link>
+        </div>
         <nav>
           <ul className="nav-bar-list">
-            <li>
-              <Link to="/">
-                <div className="logo">
-                  <img src="/animalgogo.svg" alt="Animalgogo logo" />
-                </div>
-              </Link>
-            </li>
             <li>
               <Link to="/about">About</Link>
             </li>
