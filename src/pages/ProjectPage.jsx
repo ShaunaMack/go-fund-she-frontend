@@ -6,6 +6,8 @@ import deleteProject from "../api/delete-project";
 import UpdateProjectForm from "../components/UpdateProjectForm";
 import Button from "../components/Button";
 
+import "./ProjectPage.css";
+
 function ProjectPage() {
   const navigate = useNavigate();
   const { auth } = useAuth();
@@ -50,28 +52,41 @@ function ProjectPage() {
       </h3>
       <h3>{`Status: ${project.is_open ? "Open" : "Closed"}`}</h3>
       <h3>Pledges:</h3>
-      <ul>
-        {project.pledges.map((pledge, key) => (
-          <li key={key}>
-            {pledge.amount} from{" "}
-            {pledge.anonymous
-              ? "Anonymous"
-              : project.userMap[pledge.supporter] || "Unknown"}
-            <p>{pledge.comment}</p>
-          </li>
-        ))}
-      </ul>
+
+      <div>
+        {project.pledges.length > 0 ? (
+          <ul className="pledge-list">
+            {project.pledges.map((pledge, key) => (
+              <li className="pledge-item" key={key}>
+                <span className="pledge-amount">${pledge.amount}</span> from{" "}
+                <span className="pledge-supporter">
+                  {pledge.anonymous
+                    ? "Anonymous"
+                    : project.userMap[pledge.supporter] || "Unknown"}
+                </span>
+                <p className="pledge-comment">{pledge.comment}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="no-pledges-message">
+            There are no pledges for this project.
+          </div>
+        )}
+      </div>
+
       {project.is_open && !auth.token && (
         <Button onClick={handleLoginClick}>
           Login to make a pledge to this project
         </Button>
       )}
       <div className="form-container">
-        {project.is_open && auth.token && <PledgeForm projectId={project.id} />}
+        {project.is_open && auth.token && (
+          <PledgeForm projectId={project.id} projectTitle={project.title} />
+        )}
 
         {isOwner && (
           <div>
-            <h2>Manage Project</h2>
             <UpdateProjectForm project={project} token={auth.token} />
             <Button onClick={handleDelete} color="var(--warningColor)">
               Delete Project

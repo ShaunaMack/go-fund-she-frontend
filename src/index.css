@@ -50,6 +50,7 @@ h2 {
 h3 {
   font-size: 1.5em;
   color: var(--mutedColor);
+  margin: 0.5em;
 }
 
 /* Links */

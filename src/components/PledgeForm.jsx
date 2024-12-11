@@ -4,7 +4,7 @@ import Button from "./Button.jsx";
 
 /* eslint-disable react/prop-types */
 function PledgeForm(props) {
-  const { projectId } = props;
+  const { projectId, projectTitle } = props;
   const [pledgeData, setPledgeData] = useState({
     amount: "",
     comment: "",
@@ -47,6 +47,7 @@ function PledgeForm(props) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Pledge to {projectTitle}</h2>
       <div>
         <label htmlFor="amount">Amount:</label>
         <input

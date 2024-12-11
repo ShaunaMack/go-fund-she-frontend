@@ -34,6 +34,7 @@ function UpdateProjectForm({ project, token }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Manage Project</h2>
       <div>
         <label htmlFor="title">Title:</label>
         <input
