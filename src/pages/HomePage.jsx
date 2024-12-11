@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import { useAuth } from "../hooks/use-auth";
+import { useState } from "react";
+
+import useProjects from "../hooks/use-projects";
 import ProjectCard from "../components/ProjectCard";
 import ProjectForm from "../components/ProjectForm";
-import { useAuth } from "../hooks/use-auth";
-import useProjects from "../hooks/use-projects";
+import Button from "../components/Button";
+
 import "./HomePage.css";
 
 function HomePage() {
@@ -11,8 +14,10 @@ function HomePage() {
   const { projects, isLoading, error } = useProjects();
   const navigate = useNavigate();
 
+  const [showCreateProjectForm, setShowCreateProjectForm] = useState(false);
+
   if (isLoading) {
-    return <p>loading...</p>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
@@ -20,26 +25,34 @@ function HomePage() {
   }
 
   const handleLoginClick = () => navigate("/login");
+
   return (
-    <>
-      <div className="form-container">
-        <div id="project-list">
-          {projects.map((projectData, index) => {
-            return <ProjectCard key={index} projectData={projectData} />;
-          })}
-        </div>
-        {auth.token ? (
+    <div className="form-container">
+      <div id="project-list">
+        {projects.map((projectData, index) => (
+          <ProjectCard key={index} projectData={projectData} />
+        ))}
+      </div>
+      {auth.token ? (
+        showCreateProjectForm ? (
           <div>
-            <h2>Create A New Project</h2>
+            <h2>Create a New Project</h2>
             <ProjectForm />
+            <Button onClick={() => setShowCreateProjectForm(false)}>
+              Close Form
+            </Button>
           </div>
         ) : (
-          <Button onClick={handleLoginClick}>
-            Login to create your own project
+          <Button onClick={() => setShowCreateProjectForm(true)}>
+            Create a New Project
           </Button>
-        )}
-      </div>
-    </>
+        )
+      ) : (
+        <Button onClick={handleLoginClick}>
+          Login to create your own project
+        </Button>
+      )}
+    </div>
   );
 }
 
