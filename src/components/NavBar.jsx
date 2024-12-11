@@ -16,7 +16,7 @@ function NavBar() {
           <li>
             <Link to="/">
               <div className="logo">
-                <img src="../../public/animalgogo.svg" />
+                <img src="/animalgogo.svg" alt="Animalgogo logo" />
               </div>
             </Link>
           </li>
