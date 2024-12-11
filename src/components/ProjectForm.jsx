@@ -63,6 +63,7 @@ function ProjectForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Create a New Project</h2>
       <div>
         <label htmlFor="title">Title:</label>
         <input

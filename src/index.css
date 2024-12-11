@@ -1,3 +1,25 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: var(--defaultColor);
+  background-color: none;
+}
+
+main {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 0;
+}
+
 /* Define default color variables */
 :root {
   --defaultColor: black;
@@ -9,15 +31,10 @@
   --mutedColor: #777777;
   --placeholderColor: #aaaaaa;
 }
-
 #root {
-  font-family: Arial, sans-serif;
-  color: var(--defaultColor);
-  background-color: none;
-  margin: 0;
+  margin: 0 10px;
   padding: 0;
 }
-
 /* Headings */
 h1 {
   color: var(--primaryColor);
@@ -124,6 +141,10 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 form div label {

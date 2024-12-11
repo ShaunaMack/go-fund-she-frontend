@@ -27,7 +27,7 @@ function HomePage() {
   const handleLoginClick = () => navigate("/login");
 
   return (
-    <div className="form-container">
+    <div>
       <div id="project-list">
         {projects.map((projectData, index) => (
           <ProjectCard key={index} projectData={projectData} />
@@ -35,8 +35,7 @@ function HomePage() {
       </div>
       {auth.token ? (
         showCreateProjectForm ? (
-          <div>
-            <h2>Create a New Project</h2>
+          <div className="form-container">
             <ProjectForm />
             <Button onClick={() => setShowCreateProjectForm(false)}>
               Close Form

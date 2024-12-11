@@ -10,32 +10,38 @@ function NavBar() {
     setAuth({ token: null });
   };
   return (
-    <div className="nav-bar-wrapper">
-      <nav>
-        <ul className="nav-bar-list">
-          <li>
-            <Link to="/">
-              <div className="logo">
-                <img src="/animalgogo.svg" alt="Animalgogo logo" />
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>{auth.token ? <Link to="/dashboard">Dashboard</Link> : null}</li>
-          <li>
-            {auth.token ? (
-              <Link to="/" onClick={handleLogout}>
-                Log Out
+    <div>
+      <div className="nav-bar-wrapper">
+        <nav>
+          <ul className="nav-bar-list">
+            <li>
+              <Link to="/">
+                <div className="logo">
+                  <img src="/animalgogo.svg" alt="Animalgogo logo" />
+                </div>
               </Link>
-            ) : (
-              <Link to="/login">Login</Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-      <Outlet />
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              {auth.token ? <Link to="/dashboard">Dashboard</Link> : null}
+            </li>
+            <li>
+              {auth.token ? (
+                <Link to="/" onClick={handleLogout}>
+                  Log Out
+                </Link>
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }

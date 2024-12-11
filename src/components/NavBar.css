@@ -1,43 +1,43 @@
 .nav-bar-wrapper {
   display: flex;
-  flex-direction: column;
-}
-
-nav {
-  background-color: var(--backgroundAccentColor);
-  padding: 10px 20px; /* Add some padding for spacing */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for a subtle 3D effect */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--mutedColor);
+  background-color: transparent;
 }
 
 .nav-bar-list {
   display: flex;
+  list-style: none;
+  gap: 20px;
   justify-content: flex-start;
   align-items: center;
-  list-style-type: none;
+}
+
+.nav-bar-list li {
   margin: 0;
-  padding: 0;
 }
 
-.nav-bar-list > li {
-  margin-right: 20px; /* Space between nav items */
-}
-
-.nav-bar-list > li > a {
-  text-decoration: none; /* Remove default underline */
+.nav-bar-list a {
+  text-decoration: none;
   color: var(--secondaryColor);
   font-weight: bold;
   font-size: 16px;
 }
 
-.nav-bar-list > li > a:hover {
+.nav-bar-list a:hover {
   color: var(--secondaryDarkColor);
 }
 
 .logo {
-  width: 40px;
-  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-img {
-  width: 100%;
+.logo img {
+  width: 40px;
+  height: auto;
 }
