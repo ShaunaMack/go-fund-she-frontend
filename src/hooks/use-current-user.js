@@ -8,8 +8,6 @@ export default function useCurrentUser(token) {
 
   useEffect(() => {
     if (!token) {
-      setError("No token provided.");
-      setIsLoading(false);
       return;
     }
 
