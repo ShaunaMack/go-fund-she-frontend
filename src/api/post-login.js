@@ -19,6 +19,7 @@ async function postLogin(username, password) {
     });
 
     const errorMessage = data?.detail ?? fallbackError;
+    console.error(errorMessage);
     throw new Error(errorMessage);
   }
 

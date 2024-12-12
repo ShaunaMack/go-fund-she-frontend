@@ -1,9 +1,11 @@
 import { useState } from "react";
 import updateProject from "../api/update-project";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 function UpdateProjectForm({ project, token }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: project.title,
     description: project.description,
@@ -26,6 +28,7 @@ function UpdateProjectForm({ project, token }) {
     try {
       await updateProject(project.id, formData, token);
       alert("Project updated successfully.");
+      navigate(0);
     } catch (err) {
       console.error("Error updating project:", err);
       alert(err.message);

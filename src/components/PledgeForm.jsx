@@ -1,10 +1,12 @@
 import { useState } from "react";
 import postPledge from "../api/post-pledge.js";
 import Button from "./Button.jsx";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 function PledgeForm(props) {
   const { projectId, projectTitle } = props;
+  const navigate = useNavigate();
   const [pledgeData, setPledgeData] = useState({
     amount: "",
     comment: "",
@@ -36,6 +38,7 @@ function PledgeForm(props) {
           comment: "",
           anonymous: false,
         });
+        navigate(0);
       } catch (error) {
         console.error("Error during pledge creation:", error.message);
         // TODO: decide what to show user if there is an error making a pledge
