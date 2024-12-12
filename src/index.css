@@ -133,7 +133,6 @@ button {
 .error {
   color: var(--warningColor);
   font-size: 0.9rem;
-  margin-top: -10px;
 }
 
 /* Form container */
